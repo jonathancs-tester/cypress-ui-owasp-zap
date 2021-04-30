@@ -1,0 +1,17 @@
+{
+    "name": "security-tests-with-owasp-zap-cypress",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "remote:cypress": "cross-env HTTP_PROXY=http://localhost:8080 NO_PROXY=\"<-loopback>\" cypress run --config-file cypress.json --browser chrome",
+        "remote:zap-active-scan": "./active-scan-and-wait.sh",
+        "remote:all": "npm run remote:cypress && npm run remote:zap-active-scan"
+    },
+    "author": "",
+    "license": "UNLICENSED",
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "cypress": "^5.3.0"
+    }
+}
