@@ -23,9 +23,7 @@ Inicie o OWASP ZAP no modo headless usando Docker, pois precisamos apenas de sua
 
 
 ```bash
-docker run -u zap -p 8080:8080 jverhoelen/owasp-zap-with-entrypoint
-# esta imagem é uma variante de https://github.com/zaproxy/zaproxy/blob/develop/docker/Dockerfile-bare
-# foi criado a partir do arquivo https://github.com/jverhoelen/zaproxy/blob/develop/docker/Dockerfile-bare-entrypoint
+docker run -u zap -p 8080:8080 owasp/zap2docker-bare zap.sh -daemon -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true  -config api.disablekey=true -host 0.0.0.0
 # ele apenas executa o ZAP como um ponto de entrada do Docker usando seu wrapper de script bash zap.sh com alguns argumentos padrão, de modo que se liga a 0.0.0.0:8080 como daemon sem chave de API
 ```
 
